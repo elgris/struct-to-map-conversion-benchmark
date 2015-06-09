@@ -9,7 +9,7 @@ import (
 	"github.com/go-sql-driver/mysql"
 )
 
-func GetExpectedResult() map[string]interface{} {
+func GetExpectedResultStom() map[string]interface{} {
 	return map[string]interface{}{
 		"id":       1,
 		"name":     "item_1",

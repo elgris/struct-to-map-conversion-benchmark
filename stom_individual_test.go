@@ -28,21 +28,21 @@ type ItemStomIndividual struct {
 }
 
 func TestStomIndividual(t *testing.T) {
-	expected := GetExpectedResult()
+	expected := GetExpectedResultStom()
 
 	item := getItemStomIndividual()
-	tomapper := stom.MustNewStom(item)
+	tomapper := stom.MustNewStom(ItemStomIndividual{})
 	actual, _ := tomapper.ToMap(item)
 
 	AssertMapsEqual(t, expected, actual)
 }
 
 func TestStomIndividualPtr(t *testing.T) {
-	expected := GetExpectedResult()
+	expected := GetExpectedResultStom()
 
 	item := getItemStomIndividual()
 
-	tomapper := stom.MustNewStom(&item)
+	tomapper := stom.MustNewStom(ItemStomIndividual{})
 	actual, _ := tomapper.ToMap(&item)
 
 	AssertMapsEqual(t, expected, actual)
@@ -50,7 +50,7 @@ func TestStomIndividualPtr(t *testing.T) {
 
 func BenchmarkStomIndividual(b *testing.B) {
 	item := getItemStomIndividual()
-	tomapper := stom.MustNewStom(item)
+	tomapper := stom.MustNewStom(ItemStomIndividual{})
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -60,11 +60,11 @@ func BenchmarkStomIndividual(b *testing.B) {
 
 func BenchmarkStomIndividualPtr(b *testing.B) {
 	item := getItemStomIndividual()
-	tomapper := stom.MustNewStom(&item)
+	tomapper := stom.MustNewStom(ItemStomIndividual{})
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		tomapper.ToMap(item)
+		tomapper.ToMap(&item)
 	}
 }
 

@@ -69,7 +69,7 @@ func (this *ItemByHand) ToMap() map[string]interface{} {
 }
 
 func TestByHand(t *testing.T) {
-	expected := GetExpectedResult()
+	expected := GetExpectedResultStom()
 
 	item := getItemByHand()
 	actual := item.ToMap()

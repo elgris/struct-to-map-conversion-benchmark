@@ -28,19 +28,19 @@ type ItemStomGeneral struct {
 }
 
 func TestStomGeneral(t *testing.T) {
-	expected := GetExpectedResult()
+	expected := GetExpectedResultStom()
 
 	item := getItemStomGeneral()
-	actual, _ := stom.ToMap(item)
+	actual, _ := stom.ConvertToMap(item)
 
 	AssertMapsEqual(t, expected, actual)
 }
 
 func TestStomGeneralPtr(t *testing.T) {
-	expected := GetExpectedResult()
+	expected := GetExpectedResultStom()
 
 	item := getItemStomGeneral()
-	actual, _ := stom.ToMap(&item)
+	actual, _ := stom.ConvertToMap(&item)
 
 	AssertMapsEqual(t, expected, actual)
 }
@@ -49,7 +49,7 @@ func BenchmarkStomGeneral(b *testing.B) {
 	item := getItemStomGeneral()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		stom.ToMap(item)
+		stom.ConvertToMap(item)
 	}
 }
 
@@ -57,7 +57,7 @@ func BenchmarkStomGeneralPtr(b *testing.B) {
 	item := getItemStomGeneral()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		stom.ToMap(&item)
+		stom.ConvertToMap(&item)
 	}
 }
 
