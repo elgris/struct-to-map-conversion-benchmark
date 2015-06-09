@@ -44,7 +44,7 @@ Tools participating in benchmark:
 # Participants
 
 ## Method ToMap written by hand or generated
-Check [ToMap implementation]() for details.
+Check [ToMap implementation](https://github.com/elgris/struct-to-map-conversion-benchmark/blob/master/byhand_test.go#L29) for details.
 
 ## SToM
 Good thing about SToM - it's built to be fast. That means "use as little reflection as possible". Also it allows implement custom converters for each type: you just need to implement interface `ToMappable` for it. There are benchmarks for 2 modes of working with stom.
